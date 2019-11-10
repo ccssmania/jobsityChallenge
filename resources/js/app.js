@@ -33,4 +33,51 @@ const app = new Vue({
 
 $(document).ready(function(){
 
+	//hide tweet
+	$('.hideTweet').click(function(){
+	//sweetAlert
+	  var user_id = $(this).data('userId');
+	  var tweet_id = $(this).data('tweetId');
+	  var url = $(this).data('url');
+	  var alert_ = $(this).data('alert');
+	  swal({
+			title: "Are you sure?",
+			text: $(this).attr('title'),
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonText: "Yes, "+alert_,
+			cancelButtonText: "No, Cancel!",
+			closeOnConfirm: false,
+			closeOnCancel: false
+			}, function(isConfirm) {
+			  if (isConfirm) {
+				$.ajaxSetup({
+					headers: {
+						'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+					}
+				});
+				$.ajax({
+					type:'POST',
+					url: url+tweet_id+'/'+user_id,
+					statusCode: {
+						403: function (xhr) {
+							swal("Unauthorized Action!", "No permissions", "error");
+						}
+					},
+					success:function(data){
+						swal({title: "Hidden!", text: "The tweet has been "+alert_+".", type: "success"},function(){
+							location.reload();
+						});
+					 
+					},
+					onerror:function(e){
+						console.log(e);
+						swal("Something was wrong!", "The tweet couldn't be "+alert_+".", "error");
+					},
+				});
+			} else {
+				swal("Canceled", "the process was canceled!", "error");
+				}
+			});
+	});
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Entry;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth','exept');
     }
 
     /**
@@ -23,8 +24,10 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {	
-    	$users = User::with('entries')->orderBy('created_at')->get();
-        return view('public.index', compact('users'));
+    {   
+        // Get the entries ordered by created_at and then taking just users
+        $entries = Entry::orderBy('created_at','desc')->paginate(5)->unique('user_id');
+        
+        return view('public.index', compact('entries'));
     }
 }

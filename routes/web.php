@@ -23,3 +23,13 @@ Route::get('/entries/create', 'EntryController@create')->name('entries');
 Route::post('/entries/create', 'EntryController@store')->name('entries');
 Route::get('/entries/edit/{entry_id}', 'EntryController@edit')->name('entries');
 Route::post('/entries/edit/{entry_id}', 'EntryController@update')->name('entries');
+Route::get('/entries/show/{entry_id}', 'EntryController@show')->name('entries');
+
+//Profile Route
+Route::get('/profile/{user_id}', 'ProfileController@index')->name('profile');
+Route::get('/profile/show/{entry_id}/{user_id}', 'ProfileController@show')->name('profile');
+
+//tweets routes
+
+Route::post('/tweets/hide/{tweet_id}/{user_id}', 'NoShowTweetController@hide');
+Route::post('/tweets/show/{tweet_id}/{user_id}', 'NoShowTweetController@show');

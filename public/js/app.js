@@ -49371,7 +49371,58 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
-$(document).ready(function () {});
+$(document).ready(function () {
+  //hide tweet
+  $('.hideTweet').click(function () {
+    //sweetAlert
+    var user_id = $(this).data('userId');
+    var tweet_id = $(this).data('tweetId');
+    var url = $(this).data('url');
+    var alert_ = $(this).data('alert');
+    swal({
+      title: "Are you sure?",
+      text: $(this).attr('title'),
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, " + alert_,
+      cancelButtonText: "No, Cancel!",
+      closeOnConfirm: false,
+      closeOnCancel: false
+    }, function (isConfirm) {
+      if (isConfirm) {
+        $.ajaxSetup({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          }
+        });
+        $.ajax({
+          type: 'POST',
+          url: url + tweet_id + '/' + user_id,
+          statusCode: {
+            403: function _(xhr) {
+              swal("Unauthorized Action!", "No permissions", "error");
+            }
+          },
+          success: function success(data) {
+            swal({
+              title: "Hidden!",
+              text: "The tweet has been " + alert_ + ".",
+              type: "success"
+            }, function () {
+              location.reload();
+            });
+          },
+          onerror: function onerror(e) {
+            console.log(e);
+            swal("Something was wrong!", "The tweet couldn't be " + alert_ + ".", "error");
+          }
+        });
+      } else {
+        swal("Canceled", "the process was canceled!", "error");
+      }
+    });
+  });
+});
 
 /***/ }),
 

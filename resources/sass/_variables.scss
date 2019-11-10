@@ -22,19 +22,19 @@ $white: #FFF;
 // Brown : #795548
 // Purple: #673AB7
 
-$primary-color: #009688;
+$primary-color: #795548;
 
 // Complementry color is used to indecate the loading bar on the top
 // of the page with pace.js plugin
 $complementry-color: adjust_hue($primary-color, 180);
 
 // ------- Sidebar Width --------
-$sidebar-width: 230px;
+$sidebar-width: 530px;
 
 // ------- Sidebar Colors --------
 
 // Background color of sidebar
-$sidebar-color: #222d32;
+$sidebar-color: #eee;
 
 // -- Suggested sidebar background colors
 // dark  : #222d32
@@ -42,7 +42,7 @@ $sidebar-color: #222d32;
 
 // Sidebar accent varible is used to determine the color of the links
 // of the sidebar. The allowed values are 'light' or 'dark' only
-$sidebar-accent: dark;
+$sidebar-accent: light;
 
 // The following varibles indecate sidebar link color
 // and link hover color when using a dark sidebar color

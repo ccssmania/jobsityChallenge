@@ -22,13 +22,10 @@
 //Admin Panel Components
 @import 'component/header';
 @import 'component/sidebar';
-@import 'component/sidebar-mini';
 
 @import 'sweetalert';
 
 @import 'user-profile';
-
-@import 'chat';
 
 
 
@@ -80,4 +77,25 @@ html, body {
 
 .m-b-md {
     margin-bottom: 30px;
+}
+
+.entries-height{
+	height: 400px;
+
+}
+
+.card-body{
+	overflow-y: scroll;
+}
+.row-height{
+	max-height: 400px;
+}
+
+.link-edit{
+	position:absolute;
+	top:0;
+	right:0;
+}
+.app-nav .nav-link {
+    color: rgba(255, 255, 255, 0.5);
 }

@@ -7,7 +7,7 @@
 	top: 0;
 	width: 100%;
 	display: flex;
-	background-color: $primary-color;
+	background-color: $dark;
 	z-index: 1030;
 	padding-right: 15px;
 	@media(min-width: 768px) { padding-right: 30px }
@@ -28,10 +28,10 @@
 		display: block;
 		width: $sidebar-width;
 		@if $sidebar-accent == dark {
-			background-color: darken( $primary-color, 5% );
+			background-color: darken( $dark, 5% );
 		}
 		@if $sidebar-accent == light {
-			background-color: lighten( $primary-color, 5% );
+			background-color: lighten( $dark, 5% );
 		}
 	}
 	&:focus,

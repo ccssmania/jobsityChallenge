@@ -84,4 +84,14 @@ class EntryController extends Controller
         }
     }
 
+    /**
+     * show a  entry
+     *
+     */
+
+    public function show($entry_id){
+    	$entry = Entry::find($entry_id);
+    	return view('entries.show', compact('entry'));
+    }
+
 }

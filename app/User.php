@@ -40,6 +40,15 @@ class User extends Authenticatable
     //********************Relationships*******************
 
     public function entries(){
-    	return $this->hasMany('App\Entry');
+    	return $this->hasMany('App\Entry')->orderBy('entries.created_at','DESC');
     }
+
+    public function noShowTweets(){
+    	return $this->hasMany('App\NoShowTweet');
+    }
+    //********************Scopes*************************
+
+    public static function scopeAllOrdered($query){ //get the users ordered by recent post
+		return $query->join('entries','users.id','=','entries.user_id')->orderBy('entries.created_at', 'desc')->select('users.*')->get()->unique('users.id');
+	}
 }
