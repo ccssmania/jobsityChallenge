@@ -1,17 +1,15 @@
 
-## About Poject
+## About Project
 
-This project was a challenge from jobsity in which the main was create (post/blog) application using user entries.
-there are two main public pages, the first one list the three las entries of each user ordered by date and the second one is like a profile page where you can see all the user entries and his tweets. 
+This project was a challenge of jobsity in which the main idea was to create something similar to (post/blog) application using user entries. there are two main public pages, the first one lists the three las entries of each user ordered by date and the second one is like a profile page where you can see all the user entries and his tweets.
 
-This app was built up using Laravel framework.
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This app was built up using Laravel framework. Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-The project implements unit test and use a continuous integration with travis and heroku when you push to your git
+The project implements unit tests and uses a continuous integration with travis and heroku when you push to your git
 
 ## Demo
 
-The project is already in a free hosting Heroku and it use a continuous integration with travis and Heroku
+The project is already in a free hosting Heroku and it uses a continuous integration with travis and Heroku 
 https://jobsitychallenge.herokuapp.com/
 
 ## Learning Laravel
