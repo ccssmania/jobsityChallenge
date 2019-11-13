@@ -30,7 +30,7 @@
 		</div>
 		<div class="row mt-5">
 			<div class="col-md-4 mx-auto text-center">
-				{{ $entries->links() }}
+				{{ $entries->onEachSide(1)->links() }}
 			</div>
 		</div>
 	</div>

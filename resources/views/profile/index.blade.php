@@ -26,11 +26,7 @@
 					</div>
 				</div>
 			@endforeach
-		</div>
-		<div class="text-center row">
-			<div class="col-md-4 mx-auto">
-				{{ $entries->links() }}
-			</div>
+				{{ $entries->onEachSide(1)->links() }}
 		</div>
 	</div>
 @endsection
