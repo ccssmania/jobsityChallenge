@@ -12,7 +12,7 @@
 */
 
 if (env('APP_ENV') === 'production' and env('APP_URL') == 'https://jobsitychallenge.herokuapp.com/') {
-    URL::forceSchema('https');
+    URL::forceScheme('https');
 }
 
 Route::get('/', 'HomeController@index');
