@@ -7,6 +7,16 @@
 	@if(Route::getCurrentRoute()->getName() == 'profile')
 		@include('partials.sidbar')
 	@endif
+
+	{{-- Checking flash messages --}}
+	@if(Session::has('message'))
+		<div id="session_message">{{Session::get('message')}}</div>
+	@endif
+
+	@if(Session::has('errorMessage'))
+		<div id="session_errorMessage">{{Session::get('errorMessage')}}</div>
+	@endif
+
     <div id="app">
     	@if(Route::getCurrentRoute()->getName() == 'profile')
         	@include('partials.headerAdmin')

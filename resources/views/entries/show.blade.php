@@ -10,7 +10,7 @@
 					</a>
 				</div>
 				@can('update', $entry)
-					<a class="link-edit pr-3 pt-2" href="{{ url('/entries/edit/'.$entry->id) }}"> Edit </a>
+					<a class="link-edit pr-3 pt-2" href="{{ url('/entries/'.$entry->id.'/edit') }}"> Edit </a>
 				@endcan
 			</div>
 			<div class="card-body inline">

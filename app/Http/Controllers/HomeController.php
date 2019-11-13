@@ -8,15 +8,6 @@ use App\Entry;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //$this->middleware('auth','exept');
-    }
 
     /**
      * Show the application dashboard.
@@ -24,10 +15,22 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {   
-        // Get the entries ordered by created_at and then taking just users
-        $entries = Entry::orderBy('created_at','desc')->paginate(5)->unique('user_id');
-        
+    {
+        $users = User::all();
+
+        $entries = new \Illuminate\Database\Eloquent\Collection;
+
+        /**
+         * iterate each user
+         * take the last three entries
+         * merge in a collection
+         * @return Collection
+         */
+        $users->each(function($item, $key) use (&$entries){
+        	$entries = $entries->merge($item->entries_limit_3);
+        });
+
+        $entries = $entries->sortByDesc('created_at')->paginate(12); //sorting by created_at and paginating
         return view('public.index', compact('entries'));
     }
 }

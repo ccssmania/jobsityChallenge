@@ -33,6 +33,18 @@ const app = new Vue({
 
 $(document).ready(function(){
 
+	//display the session messagges
+	if(document.getElementById('session_message')){
+		swal("Did it!", $('#session_message').text(), "success");
+	}
+	if(document.getElementById('session_errorMessage')){
+		swal("Error!", $('#session_errorMessage').text(), "error");
+	}
+	//display message for each form action
+	$('form').submit(function(){
+		swal("Loading", "Processing the Action", "info");
+	});
+
 	//hide tweet
 	$('.hideTweet').click(function(){
 	//sweetAlert

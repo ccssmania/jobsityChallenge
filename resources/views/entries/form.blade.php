@@ -1,7 +1,8 @@
-<div class=" container">
+<div class=" container bg-light mt-5 py-5">
     <div class="tile user-settings">
         <div class="col-md-8 mx-auto">
-            <form action="{{$url}}" method="{{$method}}" class="form-horizontal" >
+            <form action="{{$url}}" method="{{($method == 'PUT' or $method == 'PATCH') ? 'POST' : $method}}" class="form-horizontal" >
+            	@method($method)
                 @csrf
                 <div class=" form-group">
                     <label class="control-label"> Title </label>

@@ -42,13 +42,13 @@ class User extends Authenticatable
     public function entries(){
     	return $this->hasMany('App\Entry')->orderBy('entries.created_at','DESC');
     }
+    public function entries_limit_3(){
+    	return $this->hasMany('App\Entry')->orderBy('entries.created_at','DESC')->limit(3);
+    }
 
     public function noShowTweets(){
     	return $this->hasMany('App\NoShowTweet');
     }
     //********************Scopes*************************
 
-    public static function scopeAllOrdered($query){ //get the users ordered by recent post
-		return $query->join('entries','users.id','=','entries.user_id')->orderBy('entries.created_at', 'desc')->select('users.*')->get()->unique('users.id');
-	}
 }

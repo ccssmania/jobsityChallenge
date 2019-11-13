@@ -62,11 +62,10 @@ class EntryController extends Controller
     }
 
     /**
-     * update a  entry
+     * update an  entry
      *
      */
     public function update(Request $request, $id){
-
         $this->validate($request,[
             'title' => ['required', 'string', 'max:255'],
             'content' => ['required', 'string'],
@@ -85,7 +84,7 @@ class EntryController extends Controller
     }
 
     /**
-     * show a  entry
+     * show an  entry
      *
      */
 

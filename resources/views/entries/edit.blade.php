@@ -9,6 +9,6 @@
 @endsection
 @section('content')
 	<div class="flex-center">
-		@include('entries.form', ['url' => url('/entries/create/'.$entry->id), 'method' => 'POST'])
+		@include('entries.form', ['url' => url('/entries/'.$entry->id), 'method' => 'PATCH'])
 	</div>
 @endsection

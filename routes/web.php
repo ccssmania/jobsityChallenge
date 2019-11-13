@@ -19,11 +19,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 //Entry Routes
-Route::get('/entries/create', 'EntryController@create')->name('entries');
-Route::post('/entries/create', 'EntryController@store')->name('entries');
-Route::get('/entries/edit/{entry_id}', 'EntryController@edit')->name('entries');
-Route::post('/entries/edit/{entry_id}', 'EntryController@update')->name('entries');
-Route::get('/entries/show/{entry_id}', 'EntryController@show')->name('entries');
+Route::resource('/entries','EntryController')->names('entries');
 
 //Profile Route
 Route::get('/profile/{user_id}', 'ProfileController@index')->name('profile');

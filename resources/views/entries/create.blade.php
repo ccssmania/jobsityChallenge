@@ -9,6 +9,6 @@
 @endsection
 @section('content')
 	<div class="mt-5">
-		@include('entries.form', ['url' => url('/entries/create'), 'method' => 'POST'])
+		@include('entries.form', ['url' => url('/entries'), 'method' => 'POST'])
 	</div>
 @endsection

@@ -53,7 +53,7 @@ class EntryPolicy
      */
     public function update(User $user, Entry $entry)
     {
-        return \Auth::check() and $user->id === $entry->user_id;
+        return $user->id == $entry->user_id;
     }
 
     /**
