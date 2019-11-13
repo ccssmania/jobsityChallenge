@@ -1,6 +1,6 @@
 <aside class="app-sidebar" id="app_notifications">
-	<div class="app-sidebar__user"><img class="app-sidebar__user-avatar responsive-avatar" src="{{url('/images/small/user_'.$user->id.'.webp')}}" onerror="this.src='{{url("/images/small/perfil.png")}}'" alt="User Image">
-		<div>
+	<div class="app-sidebar__user">
+		<div class="text-center w-100">
 			<p class="app-sidebar__user-name">{{$user->name}}</p>
 			<p class="app-sidebar__user-designation">Tweets By {{ $user->twitter_username }}</p>
 		</div>
