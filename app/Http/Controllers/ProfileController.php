@@ -12,7 +12,6 @@ class ProfileController extends Controller
     public function index($user_id){
     	$user = User::find($user_id); //get the user
     	$entries = $user->entries()->paginate(9); //paginating the entries
-
     	$tweets = Twitter::getUserTimeline(['screen_name' => $user->twitter_username, 'count' => 20, 'format' => 'object']); //getting the timeline of twitter_username 
 
     	$noShowTweets = $user->noShowTweets->pluck('tweet_id');
