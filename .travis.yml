@@ -23,3 +23,4 @@ deploy:
   provider: heroku
   api_key: 3c00f924-7e52-40b1-a8f0-1184da52f981
   app: jobsitychallenge
+  script: cp .env.heroku .env
