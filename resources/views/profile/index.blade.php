@@ -17,7 +17,7 @@
 							@endcan
 						</div>
 						<div class="card-body inline">
-							<h3 class="card-title"><a href="{{ url('/profile/'.$entry->id.'/'.$entry->user->id) }}">{{ $entry->title }}</a> </h3>
+							<h3 class="card-title"><a href="{{ url('/profile/show/'.$entry->id.'/'.$entry->user->id) }}">{{ $entry->title }}</a> </h3>
 							{!! $entry->content !!}
 						</div>
 						<div class="card-footer">
